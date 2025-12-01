@@ -38,15 +38,14 @@ BEGIN
 
     PRINT '>> Inserting Data Into: bronze.crm_cust_info';
     BULK INSERT bronze.crm_cust_info
-    FROM 'datasets/source_crm/cust_info.csv'  -- within the container, he location of the file
+    FROM 'C:\Users\Igorn\Documents\Projects Pessoal\analytics-warehouse-platform\datasets\source_crm\cust_info.csv'
     WITH(
-        DATA_SOURCE = 'dataset',
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
         TABLOCK -- Minimize the number of log records for the insert operation
     );
     SET @end_time = GETDATE();
-    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
+    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
     PRINT '>> -------------------'
 
     -- Bulk insert crm prd_info table 
@@ -56,15 +55,14 @@ BEGIN
 
     PRINT '>> Inserting Data Into: bronze.crm_prd_info';
     BULK INSERT bronze.crm_prd_info
-    FROM 'datasets/source_crm/prd_info.csv'  -- within the container, he location of the file
+    FROM 'C:\Users\Igorn\Documents\Projects Pessoal\analytics-warehouse-platform\datasets\source_crm\prd_info.csv'
     WITH(
-        DATA_SOURCE = 'dataset',
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
         TABLOCK -- Minimize the number of log records for the insert operation
     );
     SET @end_time = GETDATE();
-    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
+    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
     PRINT '>> -------------------';
 
     -- Bulk insert crm sales_details table 
@@ -74,15 +72,14 @@ BEGIN
 
     PRINT '>> Inserting Data Into: bronze.crm_sales_details';   
     BULK INSERT bronze.crm_sales_details
-    FROM 'datasets/source_crm/sales_details.csv'  -- within the container, he location of the file
+    FROM 'C:\Users\Igorn\Documents\Projects Pessoal\analytics-warehouse-platform\datasets\source_crm\sales_details.csv'
     WITH(
-        DATA_SOURCE = 'dataset',
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
         TABLOCK -- Minimize the number of log records for the insert operation
     );
     SET @end_time = GETDATE();
-    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
+    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
     PRINT '>> -------------------';
 
     PRINT '---------------------------------------------------------';
@@ -96,15 +93,14 @@ BEGIN
 
     PRINT '>> Inserting Data Into: bronze.erp_cust_az12';
     BULK INSERT bronze.erp_cust_az12
-    FROM 'datasets/source_erp/CUST_AZ12.csv'  -- within the container, he location of the file
+    FROM 'C:\Users\Igorn\Documents\Projects Pessoal\analytics-warehouse-platform\datasets\source_erp\CUST_AZ12.csv'
     WITH(
-        DATA_SOURCE = 'dataset',
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
         TABLOCK -- Minimize the number of log records for the insert operation
     );
     SET @end_time = GETDATE();
-    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
+    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
     PRINT '>> -------------------';
 
     -- Bulk insert erp cust az12 table 
@@ -114,15 +110,14 @@ BEGIN
 
     PRINT '>> Inserting Data Into: bronze.erp_loc_a101';
     BULK INSERT bronze.erp_loc_a101
-    FROM 'datasets/source_erp/LOC_A101.csv'  -- within the container, he location of the file
+    FROM 'C:\Users\Igorn\Documents\Projects Pessoal\analytics-warehouse-platform\datasets\source_erp\LOC_A101.csv'
     WITH(
-        DATA_SOURCE = 'dataset',
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
         TABLOCK -- Minimize the number of log records for the insert operation
     );
     SET @end_time = GETDATE();
-    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
+    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
     PRINT '>> -------------------';
 
     -- Bulk insert erp cust az12 table 
@@ -132,15 +127,14 @@ BEGIN
 
     PRINT '>> Inserting Data Into: bronze.erp_px_cat_g1v2';
     BULK INSERT bronze.erp_px_cat_g1v2
-    FROM 'datasets/source_erp/PX_CAT_G1V2.csv'  -- within the container, he location of the file
+    FROM 'C:\Users\Igorn\Documents\Projects Pessoal\analytics-warehouse-platform\datasets\source_erp\PX_CAT_G1V2.csv'
     WITH(
-        DATA_SOURCE = 'dataset',
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
         TABLOCK -- Minimize the number of log records for the insert operation
     );
     SET @end_time = GETDATE();
-    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + 'seconds';
+    PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
     PRINT '>> -------------------'; 
 
     SET @batch_end_time = GETDATE(); 
@@ -150,5 +144,7 @@ BEGIN
     PRINT '=============================================';
 
 END
+
+GO
 
 EXEC bronze.load_bronze

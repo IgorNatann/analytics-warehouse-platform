@@ -13,7 +13,7 @@ IF OBJECT_ID ('bronze.crm_cust_info' , 'U') IS NOT NULL
     DROP TABLE bronze.crm_cust_info;
 CREATE TABLE bronze.crm_cust_info (
     cst_id INT,
-    cast_key NVARCHAR(50),
+    cst_key NVARCHAR(50),
     cst_firstname NVARCHAR(50), 
     cst_lastname NVARCHAR(50),
     cst_marital_status NVARCHAR(50),
@@ -59,7 +59,7 @@ IF OBJECT_ID ('bronze.erp_loc_a101' , 'U') IS NOT NULL
     DROP TABLE bronze.erp_loc_a101;
 CREATE TABLE bronze.erp_loc_a101 (
     cid NVARCHAR(50), 
-    cntry NVARCHAR(50),
+    cntry NVARCHAR(50)
 );
 
 IF OBJECT_ID ('bronze.erp_px_cat_g1v2' , 'U') IS NOT NULL
@@ -69,4 +69,4 @@ CREATE TABLE bronze.erp_px_cat_g1v2(
     cat NVARCHAR(50),
     subcat NVARCHAR(50),
     maintenance NVARCHAR(50)
-)
+);
